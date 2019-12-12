@@ -15,7 +15,7 @@ class ProductItem extends StatelessWidget {
         title: Text(title, textAlign: TextAlign.center,),
         backgroundColor: Color.fromRGBO(0, 0, 0, 0.5),
         leading: IconButton(
-          icon: Icon(Icons.favorite),
+          icon: Icon(Icons.favorite, color: Theme.of(context).primaryColor,),
           onPressed: (){},
         ),
         trailing: IconButton(
