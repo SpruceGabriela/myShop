@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/models/product.dart';
-
-import '../models/product.dart';
+import './product.dart';
 
 class ProductsProvider with ChangeNotifier {
   List<Product> _items = [
@@ -44,7 +42,7 @@ class ProductsProvider with ChangeNotifier {
   }
 
   Product getByID(String id){
-    return _items.firstWhere((p) => p.id == id);
+    return _items.firstWhere((p) => p.id == id); //comparing the id of each product to the ID passed as an argument
   }
 
   void addProduct(){
