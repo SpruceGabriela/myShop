@@ -17,7 +17,7 @@ class CartItem extends StatelessWidget {
       key: ValueKey(id),
       direction: DismissDirection.endToStart,
       confirmDismiss: (direction){
-        showDialog(context: context, builder: (ctx) => AlertDialog(
+        return showDialog(context: context, builder: (ctx) => AlertDialog(
           title: Text('Are you sure?'),
           content: Text('Do you want to remove the item from the cart?'),
           actions: <Widget>[
@@ -37,7 +37,8 @@ class CartItem extends StatelessWidget {
         ));
       },
       onDismissed: (direction){
-        Provider.of<Cart>(context, listen: false).removeItem(productId);
+        print('dfdsa'); 
+        Provider.of<Cart>(context).removeItem(productId);
       },
       background: Container(
         margin: EdgeInsets.symmetric(horizontal: 15, vertical: 4),
