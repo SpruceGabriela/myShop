@@ -77,19 +77,22 @@ class ProductsProvider with ChangeNotifier {
       'imageURL': product.imageUrl,
       'price': product.price,
       'isFavorite': product.isFavorited,
-    }),);
+    }),
+    )
+      .then((response){
+        print(json.decode(response.body));
+          final newProduct = Product(
+            title: product.title,
+            description: product.description,
+            price: product.price,
+            imageUrl: product.imageUrl,
+            id: json.decode(response.body)['name'],
+          );
 
-    final newProduct = Product(
-      title: product.title,
-      description: product.description,
-      price: product.price,
-      imageUrl: product.imageUrl,
-      id: DateTime.now().toString(),
-    );
+          _items.add(newProduct);
 
-    _items.add(newProduct);
-
-    notifyListeners();
+          notifyListeners();
+    });
   }
 
   void updateProduct(String id, Product newProduct){
